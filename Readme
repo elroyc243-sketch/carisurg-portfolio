@@ -1,0 +1,1038 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyN5DXcmdPZMQbun+0JDVGS0"
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "9QVCGnSe3HnR",
+        "outputId": "66564074-ee96-4381-8f96-32c166e2fb62"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Mounted at /content/drive\n",
+            "Drive mounted successfully!\n"
+          ]
+        }
+      ],
+      "source": [
+        "# Mount your Google Drive so files are accessible from Colab\n",
+        "from google.colab import drive\n",
+        "drive.mount('/content/drive')\n",
+        "print(\"Drive mounted successfully!\")"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Variable store values. Python figures out the type automatically\n",
+        "patient_id   = 42           # integer\n",
+        "patient_name  = \"Maria\"     # string\n",
+        "heart_rate  = 88.5          # float\n",
+        "is_critical  = True         # boolean\n",
+        "\n",
+        "print(f\"Patient:     {patient_name}\")\n",
+        "print(f\"Heart rate:  {heart_rate} bpm\")\n",
+        "print(f\"Critical:   {is_critical}\")\n",
+        "\n",
+        "print(f\"Type of heart_rate:  {type(patient_name)}\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "a23-ydce5rQ-",
+        "outputId": "edfa6e10-dcd7-455a-b011-b4443df0bf0c"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Patient:     Maria\n",
+            "Heart rate:  88.5 bpm\n",
+            "Critical:   True\n",
+            "Type of heart_rate:  <class 'str'>\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "from google.colab import drive\n",
+        "drive.mount('/content/drive')"
+      ],
+      "metadata": {
+        "id": "DiDZ6t-j4g3Y"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Variables store values. Python figures out the type automatically.\n",
+        "patient_id    = 42          # integer\n",
+        "patient_name  = \"Maria\"     # string\n",
+        "heart_rate    = 88.5        # float\n",
+        "is_critical   = True        # boolean\n",
+        "\n",
+        "print(f\"Patient:    {patient_name}\")\n",
+        "print(f\"Heart rate: {heart_rate} bpm\")\n",
+        "print(f\"Critical:   {is_critical}\")\n",
+        "print(f\"Type of heart_rate: {type(heart_rate)}\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "cGqVRqKWBSfC",
+        "outputId": "10b69940-c291-4e20-bf18-99046382b326"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Patient:    Maria\n",
+            "Heart rate: 88.5 bpm\n",
+            "Critical:   True\n",
+            "Type of heart_rate: <class 'float'>\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# A list holds multiple values in order\n",
+        "vital_signs = [\"pulse\", \"temperature\", \"SBP\", \"DBP\", \"RR\", \"FiO2\", \"GCS\"]\n",
+        "\n",
+        "print(\"All vitals:\", vital_signs)\n",
+        "print(\"First vital:\", vital_signs[0])      # indexing starts at 0\n",
+        "print(\"Last vital:\", vital_signs[-1])      # -1 gets the last item\n",
+        "print(\"Number of vitals:\", len(vital_signs))"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "59PKkxgNBTy8",
+        "outputId": "e34aabb7-e024-458d-a07c-6ebe35dd8828"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "All vitals: ['pulse', 'temperature', 'SBP', 'DBP', 'RR', 'FiO2', 'GCS']\n",
+            "First vital: pulse\n",
+            "Last vital: GCS\n",
+            "Number of vitals: 7\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# A for loop runs a block of code once for each item in a list\n",
+        "for vital in vital_signs:\n",
+        "    print(f\"  - {vital}\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "ioI_P6avBX1S",
+        "outputId": "f116aa32-cbe2-4c39-e0cb-032e3f06e0fb"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "  - pulse\n",
+            "  - temperature\n",
+            "  - SBP\n",
+            "  - DBP\n",
+            "  - RR\n",
+            "  - FiO2\n",
+            "  - GCS\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Conditionals let code make decisions\n",
+        "def classify_pulse(bpm):\n",
+        "    if bpm < 60:\n",
+        "        return \"Bradycardia (too slow)\"\n",
+        "    elif bpm > 100:\n",
+        "        return \"Tachycardia (too fast)\"\n",
+        "    else:\n",
+        "        return \"Normal\"\n",
+        "\n",
+        "# Test it\n",
+        "test_pulses = [45, 78, 130]\n",
+        "for p in test_pulses:\n",
+        "    print(f\"  Pulse {p} bpm -> {classify_pulse(p)}\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "RhY_P3L1Bb9j",
+        "outputId": "d02a776b-2f1f-4f3b-dad5-5ea82d961111"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "  Pulse 45 bpm -> Bradycardia (too slow)\n",
+            "  Pulse 78 bpm -> Normal\n",
+            "  Pulse 130 bpm -> Tachycardia (too fast)\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Functions package reusable code\n",
+        "def greet_trainee(name, unit=\"Clinical AI & Innovation Unit\"):\n",
+        "    message = f\"Welcome to Mercer General, {name}. You are now part of the {unit}.\"\n",
+        "    return message\n",
+        "\n",
+        "print(greet_trainee(\"Maria\")) # If the unit is not specified it is reverts to the default variable in its definition.\n",
+        "print(greet_trainee(\"James\", \"Emergency Department\"))"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "spI_vWEVBg1t",
+        "outputId": "c3981b2a-0b25-4b4a-a5af-2d2e8fca6b2a"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Welcome to Mercer General, Maria. You are now part of the Clinical AI & Innovation Unit.\n",
+            "Welcome to Mercer General, James. You are now part of the Emergency Department.\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [],
+      "metadata": {
+        "id": "Ohx_udhZBuOL"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# The three libraries we use most in this programme\n",
+        "import pandas as pd          # data manipulation\n",
+        "import numpy as np           # numerical operations\n",
+        "import matplotlib.pyplot as plt  # plotting\n",
+        "\n",
+        "print(\"Libraries imported successfully!\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "fxy3jFo_BrSK",
+        "outputId": "bad9f226-ca58-413c-addb-13d464417e2d"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Libraries imported successfully!\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# ── TUTOR: adjust this path if the file is in Drive ──────────\n",
+        "FILE_PATH = 'EmergencyTriageDataset_Reduced_Dirty.csv'\n",
+        "#FILE_PATH = '/content/drive/MyDrive/ColabNotebooks/CariSurg_Triage_Test/EmergencyTriageDataset_Reduced_Dirty.csv'\n",
+        "\n",
+        "df_raw = pd.read_csv(FILE_PATH)\n",
+        "print(f\"Dataset loaded: {df_raw.shape[0]} rows x {df_raw.shape[1]} columns\")\n",
+        "print(f\"Columns: {list(df_raw.columns)}\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "UA5V_y97BvxJ",
+        "outputId": "227a7cc6-d3bb-4742-bed0-b46966adc3b7"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Dataset loaded: 2205 rows x 11 columns\n",
+            "Columns: ['ID', 'Age', 'Gender', 'GCS', 'SBP', 'DBP', 'MAP', 'pulse', 'Temp', 'RR', 'Fio2']\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "iaaD1GqECCnz"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 363
+        },
+        "id": "co33487818",
+        "outputId": "f47bd3a5-dd6c-4f67-ddd8-3aaaabaa3aae"
+      },
+      "source": [
+        "# Always look at the first few rows immediately after loading\n",
+        "df_raw.head(10)"
+      ],
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "   ID  Age  Gender   GCS  SBP    DBP     MAP  pulse  Temp    RR   Fio2\n",
+              "0   1   34       0  15.0   93   67.0   75.67  128.0  36.8  14.0   21.0\n",
+              "1   2   20    Male  15.0  130   90.0  103.33   80.0  37.0  16.0   21.0\n",
+              "2   3   77  Female  14.0  163  105.0  124.33   92.0  36.8  18.0   21.0\n",
+              "3   4   23       0   8.0  100   60.0   73.33  100.0  37.0  12.0  100.0\n",
+              "4   5   86  FEMALE  15.0  150   90.0  110.00   85.0  37.0  19.0   21.0\n",
+              "5   6   42    Male  15.0  100   60.0   73.33   99.0  37.0  20.0   21.0\n",
+              "6   7   75  Female  15.0  120   80.0   93.33   99.0  37.0  25.0   21.0\n",
+              "7   8   25    Male  15.0  100   50.0   66.67   85.0  37.0  25.0   21.0\n",
+              "8   9   67       0  15.0  110   70.0   83.33   78.0  37.0  16.0   21.0\n",
+              "9  11   82  Female  15.0  153   82.0  105.67  130.0  37.0  19.0   21.0"
+            ],
+            "text/html": [
+              "\n",
+              "  <div id=\"df-20e7fca0-73ff-4ed8-b678-3f743a1b40c2\" class=\"colab-df-container\">\n",
+              "    <div>\n",
+              "<style scoped>\n",
+              "    .dataframe tbody tr th:only-of-type {\n",
+              "        vertical-align: middle;\n",
+              "    }\n",
+              "\n",
+              "    .dataframe tbody tr th {\n",
+              "        vertical-align: top;\n",
+              "    }\n",
+              "\n",
+              "    .dataframe thead th {\n",
+              "        text-align: right;\n",
+              "    }\n",
+              "</style>\n",
+              "<table border=\"1\" class=\"dataframe\">\n",
+              "  <thead>\n",
+              "    <tr style=\"text-align: right;\">\n",
+              "      <th></th>\n",
+              "      <th>ID</th>\n",
+              "      <th>Age</th>\n",
+              "      <th>Gender</th>\n",
+              "      <th>GCS</th>\n",
+              "      <th>SBP</th>\n",
+              "      <th>DBP</th>\n",
+              "      <th>MAP</th>\n",
+              "      <th>pulse</th>\n",
+              "      <th>Temp</th>\n",
+              "      <th>RR</th>\n",
+              "      <th>Fio2</th>\n",
+              "    </tr>\n",
+              "  </thead>\n",
+              "  <tbody>\n",
+              "    <tr>\n",
+              "      <th>0</th>\n",
+              "      <td>1</td>\n",
+              "      <td>34</td>\n",
+              "      <td>0</td>\n",
+              "      <td>15.0</td>\n",
+              "      <td>93</td>\n",
+              "      <td>67.0</td>\n",
+              "      <td>75.67</td>\n",
+              "      <td>128.0</td>\n",
+              "      <td>36.8</td>\n",
+              "      <td>14.0</td>\n",
+              "      <td>21.0</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>1</th>\n",
+              "      <td>2</td>\n",
+              "      <td>20</td>\n",
+              "      <td>Male</td>\n",
+              "      <td>15.0</td>\n",
+              "      <td>130</td>\n",
+              "      <td>90.0</td>\n",
+              "      <td>103.33</td>\n",
+              "      <td>80.0</td>\n",
+              "      <td>37.0</td>\n",
+              "      <td>16.0</td>\n",
+              "      <td>21.0</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>2</th>\n",
+              "      <td>3</td>\n",
+              "      <td>77</td>\n",
+              "      <td>Female</td>\n",
+              "      <td>14.0</td>\n",
+              "      <td>163</td>\n",
+              "      <td>105.0</td>\n",
+              "      <td>124.33</td>\n",
+              "      <td>92.0</td>\n",
+              "      <td>36.8</td>\n",
+              "      <td>18.0</td>\n",
+              "      <td>21.0</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>3</th>\n",
+              "      <td>4</td>\n",
+              "      <td>23</td>\n",
+              "      <td>0</td>\n",
+              "      <td>8.0</td>\n",
+              "      <td>100</td>\n",
+              "      <td>60.0</td>\n",
+              "      <td>73.33</td>\n",
+              "      <td>100.0</td>\n",
+              "      <td>37.0</td>\n",
+              "      <td>12.0</td>\n",
+              "      <td>100.0</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>4</th>\n",
+              "      <td>5</td>\n",
+              "      <td>86</td>\n",
+              "      <td>FEMALE</td>\n",
+              "      <td>15.0</td>\n",
+              "      <td>150</td>\n",
+              "      <td>90.0</td>\n",
+              "      <td>110.00</td>\n",
+              "      <td>85.0</td>\n",
+              "      <td>37.0</td>\n",
+              "      <td>19.0</td>\n",
+              "      <td>21.0</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>5</th>\n",
+              "      <td>6</td>\n",
+              "      <td>42</td>\n",
+              "      <td>Male</td>\n",
+              "      <td>15.0</td>\n",
+              "      <td>100</td>\n",
+              "      <td>60.0</td>\n",
+              "      <td>73.33</td>\n",
+              "      <td>99.0</td>\n",
+              "      <td>37.0</td>\n",
+              "      <td>20.0</td>\n",
+              "      <td>21.0</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>6</th>\n",
+              "      <td>7</td>\n",
+              "      <td>75</td>\n",
+              "      <td>Female</td>\n",
+              "      <td>15.0</td>\n",
+              "      <td>120</td>\n",
+              "      <td>80.0</td>\n",
+              "      <td>93.33</td>\n",
+              "      <td>99.0</td>\n",
+              "      <td>37.0</td>\n",
+              "      <td>25.0</td>\n",
+              "      <td>21.0</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>7</th>\n",
+              "      <td>8</td>\n",
+              "      <td>25</td>\n",
+              "      <td>Male</td>\n",
+              "      <td>15.0</td>\n",
+              "      <td>100</td>\n",
+              "      <td>50.0</td>\n",
+              "      <td>66.67</td>\n",
+              "      <td>85.0</td>\n",
+              "      <td>37.0</td>\n",
+              "      <td>25.0</td>\n",
+              "      <td>21.0</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>8</th>\n",
+              "      <td>9</td>\n",
+              "      <td>67</td>\n",
+              "      <td>0</td>\n",
+              "      <td>15.0</td>\n",
+              "      <td>110</td>\n",
+              "      <td>70.0</td>\n",
+              "      <td>83.33</td>\n",
+              "      <td>78.0</td>\n",
+              "      <td>37.0</td>\n",
+              "      <td>16.0</td>\n",
+              "      <td>21.0</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>9</th>\n",
+              "      <td>11</td>\n",
+              "      <td>82</td>\n",
+              "      <td>Female</td>\n",
+              "      <td>15.0</td>\n",
+              "      <td>153</td>\n",
+              "      <td>82.0</td>\n",
+              "      <td>105.67</td>\n",
+              "      <td>130.0</td>\n",
+              "      <td>37.0</td>\n",
+              "      <td>19.0</td>\n",
+              "      <td>21.0</td>\n",
+              "    </tr>\n",
+              "  </tbody>\n",
+              "</table>\n",
+              "</div>\n",
+              "    <div class=\"colab-df-buttons\">\n",
+              "\n",
+              "  <div class=\"colab-df-container\">\n",
+              "    <button class=\"colab-df-convert\" onclick=\"convertToInteractive('df-20e7fca0-73ff-4ed8-b678-3f743a1b40c2')\"\n",
+              "            title=\"Convert this dataframe to an interactive table.\"\n",
+              "            style=\"display:none;\">\n",
+              "\n",
+              "  <svg xmlns=\"http://www.w3.org/2000/svg\" height=\"24px\" viewBox=\"0 -960 960 960\">\n",
+              "    <path d=\"M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z\"/>\n",
+              "  </svg>\n",
+              "    </button>\n",
+              "\n",
+              "  <style>\n",
+              "    .colab-df-container {\n",
+              "      display:flex;\n",
+              "      gap: 12px;\n",
+              "    }\n",
+              "\n",
+              "    .colab-df-convert {\n",
+              "      background-color: #E8F0FE;\n",
+              "      border: none;\n",
+              "      border-radius: 50%;\n",
+              "      cursor: pointer;\n",
+              "      display: none;\n",
+              "      fill: #1967D2;\n",
+              "      height: 32px;\n",
+              "      padding: 0 0 0 0;\n",
+              "      width: 32px;\n",
+              "    }\n",
+              "\n",
+              "    .colab-df-convert:hover {\n",
+              "      background-color: #E2EBFA;\n",
+              "      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);\n",
+              "      fill: #174EA6;\n",
+              "    }\n",
+              "\n",
+              "    .colab-df-buttons div {\n",
+              "      margin-bottom: 4px;\n",
+              "    }\n",
+              "\n",
+              "    [theme=dark] .colab-df-convert {\n",
+              "      background-color: #3B4455;\n",
+              "      fill: #D2E3FC;\n",
+              "    }\n",
+              "\n",
+              "    [theme=dark] .colab-df-convert:hover {\n",
+              "      background-color: #434B5C;\n",
+              "      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);\n",
+              "      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));\n",
+              "      fill: #FFFFFF;\n",
+              "    }\n",
+              "  </style>\n",
+              "\n",
+              "    <script>\n",
+              "      const buttonEl =\n",
+              "        document.querySelector('#df-20e7fca0-73ff-4ed8-b678-3f743a1b40c2 button.colab-df-convert');\n",
+              "      buttonEl.style.display =\n",
+              "        google.colab.kernel.accessAllowed ? 'block' : 'none';\n",
+              "\n",
+              "      async function convertToInteractive(key) {\n",
+              "        const element = document.querySelector('#df-20e7fca0-73ff-4ed8-b678-3f743a1b40c2');\n",
+              "        const dataTable =\n",
+              "          await google.colab.kernel.invokeFunction('convertToInteractive',\n",
+              "                                                    [key], {});\n",
+              "        if (!dataTable) return;\n",
+              "\n",
+              "        const docLinkHtml = 'Like what you see? Visit the ' +\n",
+              "          '<a target=\"_blank\" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'\n",
+              "          + ' to learn more about interactive tables.';\n",
+              "        element.innerHTML = '';\n",
+              "        dataTable['output_type'] = 'display_data';\n",
+              "        await google.colab.output.renderOutput(dataTable, element);\n",
+              "        const docLink = document.createElement('div');\n",
+              "        docLink.innerHTML = docLinkHtml;\n",
+              "        element.appendChild(docLink);\n",
+              "      }\n",
+              "    </script>\n",
+              "  </div>\n",
+              "\n",
+              "\n",
+              "    </div>\n",
+              "  </div>\n"
+            ],
+            "application/vnd.google.colaboratory.intrinsic+json": {
+              "type": "dataframe",
+              "variable_name": "df_raw",
+              "summary": "{\n  \"name\": \"df_raw\",\n  \"rows\": 2205,\n  \"fields\": [\n    {\n      \"column\": \"ID\",\n      \"properties\": {\n        \"dtype\": \"number\",\n        \"std\": 677,\n        \"min\": 1,\n        \"max\": 2384,\n        \"num_unique_values\": 2205,\n        \"samples\": [\n          2096,\n          1124,\n          1510\n        ],\n        \"semantic_type\": \"\",\n        \"description\": \"\"\n      }\n    },\n    {\n      \"column\": \"Age\",\n      \"properties\": {\n        \"dtype\": \"number\",\n        \"std\": 18,\n        \"min\": 18,\n        \"max\": 98,\n        \"num_unique_values\": 80,\n        \"samples\": [\n          32,\n          34,\n          41\n        ],\n        \"semantic_type\": \"\",\n        \"description\": \"\"\n      }\n    },\n    {\n      \"column\": \"Gender\",\n      \"properties\": {\n        \"dtype\": \"category\",\n        \"num_unique_values\": 6,\n        \"samples\": [\n          \"0\",\n          \"Male\",\n          \"MALE\"\n        ],\n        \"semantic_type\": \"\",\n        \"description\": \"\"\n      }\n    },\n    {\n      \"column\": \"GCS\",\n      \"properties\": {\n        \"dtype\": \"category\",\n        \"num_unique_values\": 12,\n        \"samples\": [\n          \"6.0\",\n          \"11.0\",\n          \"15.0\"\n        ],\n        \"semantic_type\": \"\",\n        \"description\": \"\"\n      }\n    },\n    {\n      \"column\": \"SBP\",\n      \"properties\": {\n        \"dtype\": \"category\",\n        \"num_unique_values\": 142,\n        \"samples\": [\n          \"154\",\n          \"220\",\n          \"172\"\n        ],\n        \"semantic_type\": \"\",\n        \"description\": \"\"\n      }\n    },\n    {\n      \"column\": \"DBP\",\n      \"properties\": {\n        \"dtype\": \"number\",\n        \"std\": 16.713288878905875,\n        \"min\": 30.0,\n        \"max\": 173.0,\n        \"num_unique_values\": 96,\n        \"samples\": [\n          160.0,\n          128.0,\n          37.0\n        ],\n        \"semantic_type\": \"\",\n        \"description\": \"\"\n      }\n    },\n    {\n      \"column\": \"MAP\",\n      \"properties\": {\n        \"dtype\": \"number\",\n        \"std\": 19.006295524438098,\n        \"min\": 39.33,\n        \"max\": 185.0,\n        \"num_unique_values\": 253,\n        \"samples\": [\n          144.67,\n          66.67,\n          81.0\n        ],\n        \"semantic_type\": \"\",\n        \"description\": \"\"\n      }\n    },\n    {\n      \"column\": \"pulse\",\n      \"properties\": {\n        \"dtype\": \"category\",\n        \"num_unique_values\": 116,\n        \"samples\": [\n          \"150.0\",\n          \"85.0\",\n          \"68.0\"\n        ],\n        \"semantic_type\": \"\",\n        \"description\": \"\"\n      }\n    },\n    {\n      \"column\": \"Temp\",\n      \"properties\": {\n        \"dtype\": \"category\",\n        \"num_unique_values\": 49,\n        \"samples\": [\n          \"37.2\",\n          \"38.4\",\n          \"38.1\"\n        ],\n        \"semantic_type\": \"\",\n        \"description\": \"\"\n      }\n    },\n    {\n      \"column\": \"RR\",\n      \"properties\": {\n        \"dtype\": \"number\",\n        \"std\": 5.742332779650455,\n        \"min\": 12.0,\n        \"max\": 50.0,\n        \"num_unique_values\": 37,\n        \"samples\": [\n          32.0,\n          38.0,\n          19.0\n        ],\n        \"semantic_type\": \"\",\n        \"description\": \"\"\n      }\n    },\n    {\n      \"column\": \"Fio2\",\n      \"properties\": {\n        \"dtype\": \"number\",\n        \"std\": 10.144287944966205,\n        \"min\": 21.0,\n        \"max\": 100.0,\n        \"num_unique_values\": 7,\n        \"samples\": [\n          21.0,\n          100.0,\n          80.0\n        ],\n        \"semantic_type\": \"\",\n        \"description\": \"\"\n      }\n    }\n  ]\n}"
+            }
+          },
+          "metadata": {},
+          "execution_count": 26
+        }
+      ],
+      "execution_count": null
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "G2tPopFLCLBI"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "co30099891",
+        "outputId": "34e3b0df-49e8-4e00-feb2-a478c7b0b8bd"
+      },
+      "source": [
+        "# What data types does pandas think each column is?\n",
+        "print(df_raw.dtypes)"
+      ],
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "ID          int64\n",
+            "Age         int64\n",
+            "Gender     object\n",
+            "GCS        object\n",
+            "SBP        object\n",
+            "DBP       float64\n",
+            "MAP       float64\n",
+            "pulse      object\n",
+            "Temp       object\n",
+            "RR        float64\n",
+            "Fio2      float64\n",
+            "dtype: object\n"
+          ]
+        }
+      ],
+      "execution_count": null
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "co-6532450",
+        "outputId": "cfdb4fcc-7394-4009-8839-cd7a9c3a94d1"
+      },
+      "source": [
+        "# Step 1: What values are actually in the Gender column?\n",
+        "print(\"Unique values in Gender:\")\n",
+        "print(df_raw['Gender'].unique())\n",
+        "print(f\"\\nTotal unique values: {df_raw['Gender'].nunique()}\")"
+      ],
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Unique values in Gender:\n",
+            "['0' 'Male' 'Female' 'FEMALE' '1' 'MALE']\n",
+            "\n",
+            "Total unique values: 6\n"
+          ]
+        }
+      ],
+      "execution_count": null
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "co-6515842",
+        "outputId": "5d7ad7dd-2420-4f69-a8ba-3c040fd400f0"
+      },
+      "source": [
+        "# Step 2: Count how many of each value we have\n",
+        "print(\"Gender value counts:\")\n",
+        "print(df_raw['Gender'].value_counts())"
+      ],
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Gender value counts:\n",
+            "Gender\n",
+            "1         422\n",
+            "MALE      379\n",
+            "Male      375\n",
+            "FEMALE    366\n",
+            "Female    340\n",
+            "0         323\n",
+            "Name: count, dtype: int64\n"
+          ]
+        }
+      ],
+      "execution_count": null
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "co-4822006",
+        "outputId": "8bd4e60d-47c6-4b98-912c-cc4b6a5cf999"
+      },
+      "source": [
+        "# Step 3: Build the mapping — every variant maps to 1 or 0\n",
+        "gender_map = {\n",
+        "    'Male':   1,\n",
+        "    'MALE':   1,\n",
+        "    '1':      1,\n",
+        "    'Female': 0,\n",
+        "    'FEMALE': 0,\n",
+        "    '0':      0\n",
+        "}\n",
+        "\n",
+        "# Step 4: Apply the mapping to create a new, clean column\n",
+        "# It is best practice to make changes to a new column rather than editing an\n",
+        "# exising one.\n",
+        "df_raw['Gender_Clean'] = df_raw['Gender'].map(gender_map)\n",
+        "\n",
+        "# Step 5: Verify — check what we have now\n",
+        "print(\"After cleaning:\")\n",
+        "print(df_raw['Gender_Clean'].value_counts())\n",
+        "print(f\"\\nAny NaN values? {df_raw['Gender_Clean'].isnull().sum()}\")"
+      ],
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "After cleaning:\n",
+            "Gender_Clean\n",
+            "1    1176\n",
+            "0    1029\n",
+            "Name: count, dtype: int64\n",
+            "\n",
+            "Any NaN values? 0\n"
+          ]
+        }
+      ],
+      "execution_count": null
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 310
+        },
+        "id": "co51113489",
+        "outputId": "d3908cd5-6a54-481d-8a48-394d622a7063"
+      },
+      "source": [
+        "# Step 6: Drop the original dirty column now that we have a clean one\n",
+        "df_raw = df_raw.drop(columns=['Gender'])\n",
+        "df_raw = df_raw.rename(columns={'Gender_Clean': 'Gender'})\n",
+        "\n",
+        "# Confirm the result\n",
+        "print(\"Column 'Gender' after cleaning:\")\n",
+        "print(df_raw['Gender'].value_counts())\n",
+        "print(f\"Data type: {df_raw['Gender'].dtype}\")\n",
+        "df_raw.head()"
+      ],
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Column 'Gender' after cleaning:\n",
+            "Gender\n",
+            "1    1176\n",
+            "0    1029\n",
+            "Name: count, dtype: int64\n",
+            "Data type: int64\n"
+          ]
+        },
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "   ID  Age   GCS  SBP    DBP     MAP  pulse  Temp    RR   Fio2  Gender\n",
+              "0   1   34  15.0   93   67.0   75.67  128.0  36.8  14.0   21.0       0\n",
+              "1   2   20  15.0  130   90.0  103.33   80.0  37.0  16.0   21.0       1\n",
+              "2   3   77  14.0  163  105.0  124.33   92.0  36.8  18.0   21.0       0\n",
+              "3   4   23   8.0  100   60.0   73.33  100.0  37.0  12.0  100.0       0\n",
+              "4   5   86  15.0  150   90.0  110.00   85.0  37.0  19.0   21.0       0"
+            ],
+            "text/html": [
+              "\n",
+              "  <div id=\"df-95043cb9-57f1-4f11-bf20-51f3319449ab\" class=\"colab-df-container\">\n",
+              "    <div>\n",
+              "<style scoped>\n",
+              "    .dataframe tbody tr th:only-of-type {\n",
+              "        vertical-align: middle;\n",
+              "    }\n",
+              "\n",
+              "    .dataframe tbody tr th {\n",
+              "        vertical-align: top;\n",
+              "    }\n",
+              "\n",
+              "    .dataframe thead th {\n",
+              "        text-align: right;\n",
+              "    }\n",
+              "</style>\n",
+              "<table border=\"1\" class=\"dataframe\">\n",
+              "  <thead>\n",
+              "    <tr style=\"text-align: right;\">\n",
+              "      <th></th>\n",
+              "      <th>ID</th>\n",
+              "      <th>Age</th>\n",
+              "      <th>GCS</th>\n",
+              "      <th>SBP</th>\n",
+              "      <th>DBP</th>\n",
+              "      <th>MAP</th>\n",
+              "      <th>pulse</th>\n",
+              "      <th>Temp</th>\n",
+              "      <th>RR</th>\n",
+              "      <th>Fio2</th>\n",
+              "      <th>Gender</th>\n",
+              "    </tr>\n",
+              "  </thead>\n",
+              "  <tbody>\n",
+              "    <tr>\n",
+              "      <th>0</th>\n",
+              "      <td>1</td>\n",
+              "      <td>34</td>\n",
+              "      <td>15.0</td>\n",
+              "      <td>93</td>\n",
+              "      <td>67.0</td>\n",
+              "      <td>75.67</td>\n",
+              "      <td>128.0</td>\n",
+              "      <td>36.8</td>\n",
+              "      <td>14.0</td>\n",
+              "      <td>21.0</td>\n",
+              "      <td>0</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>1</th>\n",
+              "      <td>2</td>\n",
+              "      <td>20</td>\n",
+              "      <td>15.0</td>\n",
+              "      <td>130</td>\n",
+              "      <td>90.0</td>\n",
+              "      <td>103.33</td>\n",
+              "      <td>80.0</td>\n",
+              "      <td>37.0</td>\n",
+              "      <td>16.0</td>\n",
+              "      <td>21.0</td>\n",
+              "      <td>1</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>2</th>\n",
+              "      <td>3</td>\n",
+              "      <td>77</td>\n",
+              "      <td>14.0</td>\n",
+              "      <td>163</td>\n",
+              "      <td>105.0</td>\n",
+              "      <td>124.33</td>\n",
+              "      <td>92.0</td>\n",
+              "      <td>36.8</td>\n",
+              "      <td>18.0</td>\n",
+              "      <td>21.0</td>\n",
+              "      <td>0</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>3</th>\n",
+              "      <td>4</td>\n",
+              "      <td>23</td>\n",
+              "      <td>8.0</td>\n",
+              "      <td>100</td>\n",
+              "      <td>60.0</td>\n",
+              "      <td>73.33</td>\n",
+              "      <td>100.0</td>\n",
+              "      <td>37.0</td>\n",
+              "      <td>12.0</td>\n",
+              "      <td>100.0</td>\n",
+              "      <td>0</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>4</th>\n",
+              "      <td>5</td>\n",
+              "      <td>86</td>\n",
+              "      <td>15.0</td>\n",
+              "      <td>150</td>\n",
+              "      <td>90.0</td>\n",
+              "      <td>110.00</td>\n",
+              "      <td>85.0</td>\n",
+              "      <td>37.0</td>\n",
+              "      <td>19.0</td>\n",
+              "      <td>21.0</td>\n",
+              "      <td>0</td>\n",
+              "    </tr>\n",
+              "  </tbody>\n",
+              "</table>\n",
+              "</div>\n",
+              "    <div class=\"colab-df-buttons\">\n",
+              "\n",
+              "  <div class=\"colab-df-container\">\n",
+              "    <button class=\"colab-df-convert\" onclick=\"convertToInteractive('df-95043cb9-57f1-4f11-bf20-51f3319449ab')\"\n",
+              "            title=\"Convert this dataframe to an interactive table.\"\n",
+              "            style=\"display:none;\">\n",
+              "\n",
+              "  <svg xmlns=\"http://www.w3.org/2000/svg\" height=\"24px\" viewBox=\"0 -960 960 960\">\n",
+              "    <path d=\"M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z\"/>\n",
+              "  </svg>\n",
+              "    </button>\n",
+              "\n",
+              "  <style>\n",
+              "    .colab-df-container {\n",
+              "      display:flex;\n",
+              "      gap: 12px;\n",
+              "    }\n",
+              "\n",
+              "    .colab-df-convert {\n",
+              "      background-color: #E8F0FE;\n",
+              "      border: none;\n",
+              "      border-radius: 50%;\n",
+              "      cursor: pointer;\n",
+              "      display: none;\n",
+              "      fill: #1967D2;\n",
+              "      height: 32px;\n",
+              "      padding: 0 0 0 0;\n",
+              "      width: 32px;\n",
+              "    }\n",
+              "\n",
+              "    .colab-df-convert:hover {\n",
+              "      background-color: #E2EBFA;\n",
+              "      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);\n",
+              "      fill: #174EA6;\n",
+              "    }\n",
+              "\n",
+              "    .colab-df-buttons div {\n",
+              "      margin-bottom: 4px;\n",
+              "    }\n",
+              "\n",
+              "    [theme=dark] .colab-df-convert {\n",
+              "      background-color: #3B4455;\n",
+              "      fill: #D2E3FC;\n",
+              "    }\n",
+              "\n",
+              "    [theme=dark] .colab-df-convert:hover {\n",
+              "      background-color: #434B5C;\n",
+              "      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);\n",
+              "      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));\n",
+              "      fill: #FFFFFF;\n",
+              "    }\n",
+              "  </style>\n",
+              "\n",
+              "    <script>\n",
+              "      const buttonEl =\n",
+              "        document.querySelector('#df-95043cb9-57f1-4f11-bf20-51f3319449ab button.colab-df-convert');\n",
+              "      buttonEl.style.display =\n",
+              "        google.colab.kernel.accessAllowed ? 'block' : 'none';\n",
+              "\n",
+              "      async function convertToInteractive(key) {\n",
+              "        const element = document.querySelector('#df-95043cb9-57f1-4f11-bf20-51f3319449ab');\n",
+              "        const dataTable =\n",
+              "          await google.colab.kernel.invokeFunction('convertToInteractive',\n",
+              "                                                    [key], {});\n",
+              "        if (!dataTable) return;\n",
+              "\n",
+              "        const docLinkHtml = 'Like what you see? Visit the ' +\n",
+              "          '<a target=\"_blank\" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'\n",
+              "          + ' to learn more about interactive tables.';\n",
+              "        element.innerHTML = '';\n",
+              "        dataTable['output_type'] = 'display_data';\n",
+              "        await google.colab.output.renderOutput(dataTable, element);\n",
+              "        const docLink = document.createElement('div');\n",
+              "        docLink.innerHTML = docLinkHtml;\n",
+              "        element.appendChild(docLink);\n",
+              "      }\n",
+              "    </script>\n",
+              "  </div>\n",
+              "\n",
+              "\n",
+              "    </div>\n",
+              "  </div>\n"
+            ],
+            "application/vnd.google.colaboratory.intrinsic+json": {
+              "type": "dataframe",
+              "variable_name": "df_raw",
+              "summary": "{\n  \"name\": \"df_raw\",\n  \"rows\": 2205,\n  \"fields\": [\n    {\n      \"column\": \"ID\",\n      \"properties\": {\n        \"dtype\": \"number\",\n        \"std\": 677,\n        \"min\": 1,\n        \"max\": 2384,\n        \"num_unique_values\": 2205,\n        \"samples\": [\n          2096,\n          1124,\n          1510\n        ],\n        \"semantic_type\": \"\",\n        \"description\": \"\"\n      }\n    },\n    {\n      \"column\": \"Age\",\n      \"properties\": {\n        \"dtype\": \"number\",\n        \"std\": 18,\n        \"min\": 18,\n        \"max\": 98,\n        \"num_unique_values\": 80,\n        \"samples\": [\n          32,\n          34,\n          41\n        ],\n        \"semantic_type\": \"\",\n        \"description\": \"\"\n      }\n    },\n    {\n      \"column\": \"GCS\",\n      \"properties\": {\n        \"dtype\": \"category\",\n        \"num_unique_values\": 12,\n        \"samples\": [\n          \"6.0\",\n          \"11.0\",\n          \"15.0\"\n        ],\n        \"semantic_type\": \"\",\n        \"description\": \"\"\n      }\n    },\n    {\n      \"column\": \"SBP\",\n      \"properties\": {\n        \"dtype\": \"category\",\n        \"num_unique_values\": 142,\n        \"samples\": [\n          \"154\",\n          \"220\",\n          \"172\"\n        ],\n        \"semantic_type\": \"\",\n        \"description\": \"\"\n      }\n    },\n    {\n      \"column\": \"DBP\",\n      \"properties\": {\n        \"dtype\": \"number\",\n        \"std\": 16.713288878905875,\n        \"min\": 30.0,\n        \"max\": 173.0,\n        \"num_unique_values\": 96,\n        \"samples\": [\n          160.0,\n          128.0,\n          37.0\n        ],\n        \"semantic_type\": \"\",\n        \"description\": \"\"\n      }\n    },\n    {\n      \"column\": \"MAP\",\n      \"properties\": {\n        \"dtype\": \"number\",\n        \"std\": 19.006295524438098,\n        \"min\": 39.33,\n        \"max\": 185.0,\n        \"num_unique_values\": 253,\n        \"samples\": [\n          144.67,\n          66.67,\n          81.0\n        ],\n        \"semantic_type\": \"\",\n        \"description\": \"\"\n      }\n    },\n    {\n      \"column\": \"pulse\",\n      \"properties\": {\n        \"dtype\": \"category\",\n        \"num_unique_values\": 116,\n        \"samples\": [\n          \"150.0\",\n          \"85.0\",\n          \"68.0\"\n        ],\n        \"semantic_type\": \"\",\n        \"description\": \"\"\n      }\n    },\n    {\n      \"column\": \"Temp\",\n      \"properties\": {\n        \"dtype\": \"category\",\n        \"num_unique_values\": 49,\n        \"samples\": [\n          \"37.2\",\n          \"38.4\",\n          \"38.1\"\n        ],\n        \"semantic_type\": \"\",\n        \"description\": \"\"\n      }\n    },\n    {\n      \"column\": \"RR\",\n      \"properties\": {\n        \"dtype\": \"number\",\n        \"std\": 5.742332779650455,\n        \"min\": 12.0,\n        \"max\": 50.0,\n        \"num_unique_values\": 37,\n        \"samples\": [\n          32.0,\n          38.0,\n          19.0\n        ],\n        \"semantic_type\": \"\",\n        \"description\": \"\"\n      }\n    },\n    {\n      \"column\": \"Fio2\",\n      \"properties\": {\n        \"dtype\": \"number\",\n        \"std\": 10.144287944966205,\n        \"min\": 21.0,\n        \"max\": 100.0,\n        \"num_unique_values\": 7,\n        \"samples\": [\n          21.0,\n          100.0,\n          80.0\n        ],\n        \"semantic_type\": \"\",\n        \"description\": \"\"\n      }\n    },\n    {\n      \"column\": \"Gender\",\n      \"properties\": {\n        \"dtype\": \"number\",\n        \"std\": 0,\n        \"min\": 0,\n        \"max\": 1,\n        \"num_unique_values\": 2,\n        \"samples\": [\n          1,\n          0\n        ],\n        \"semantic_type\": \"\",\n        \"description\": \"\"\n      }\n    }\n  ]\n}"
+            }
+          },
+          "metadata": {},
+          "execution_count": 31
+        }
+      ],
+      "execution_count": null
+    }
+  ]
+}
